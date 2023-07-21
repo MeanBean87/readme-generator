@@ -26,6 +26,7 @@ Photo of CLI Prompts:
 2. Navigate to the root directory of the project using CLI.
 3. Install "inquirer.js" using the command "npm i inquirer" while in the project root directory.
 4. Using the CLI type "node index.js" to start the application
+5. Video walkthrough of installation can be found [here](https://drive.google.com/file/d/1uc42Uf1VRRS1AzRkezTrEXJmjrmckzsu/view).  or at URL: https://drive.google.com/file/d/1uc42Uf1VRRS1AzRkezTrEXJmjrmckzsu/view.
 
 ## Usage
 
