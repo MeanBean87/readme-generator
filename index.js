@@ -53,7 +53,6 @@ const questions = [
   },
 ];
 
-
 function writeReadme(path, data) {
   fs.stat(path, (error) => {
     if (error) {

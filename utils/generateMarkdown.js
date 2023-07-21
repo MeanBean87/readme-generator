@@ -36,10 +36,10 @@ function renderLicenseSection(license) {
     return `This project is licensed under the ${renderLicenseLink(license)} license`;
   }
   if (license === "Apache") {
-    return `This project is licensed under the ${renderLicenseLink(license)}`;
+    return `This project is licensed under the ${renderLicenseLink(license)} license.`;
   }
   if (license === "GPL") {
-    return `This project is licensed under the ${renderLicenseLink(license)}`;
+    return `This project is licensed under the ${renderLicenseLink(license)} license.`;
   }
   if (license === "None") {
     return ``;
@@ -53,8 +53,7 @@ function generateMarkdown(data) {
 ## Description
 ${data.description}
 ${renderLicenseBadge(data.license)}
-## Table of Contents
-        
+## Table of Contents    
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contributing](#contributing)
@@ -64,14 +63,19 @@ ${renderLicenseBadge(data.license)}
 
 ## Installation
 ${data.installation}
+
 ## Usage
-${data.usage}           
+${data.usage}   
+
 ## Contributing
-${data.contributing}       
+${data.contributing} 
+
 ## Tests
 ${data.tests}
+
 ## License
-${renderLicenseSection(data.license)` license.`}
+${renderLicenseSection(data.license)}
+
 ## Questions
 Feel free to reach out to me with any questions!
 * ${data.username}: [Github](https://github.com/${data.username})
