@@ -2,11 +2,11 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license === "MIT") {
-    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)`;
   } else if (license === "Apache") {
-    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)`;
   } else if (license === "GPL") {
-    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
+    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)`;
   } else if (license === "None") {
     return ``;
   }
@@ -28,6 +28,15 @@ function renderLicenseLink(license) {
     return ``;
   }
 }
+
+//Added function  to generate license section of table of contents if license is selected
+function hasLicense(license) {
+  if (license === "None") {
+    return ``;
+  } else {
+    return `* [License](#license)` 
+  }
+};
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
@@ -52,13 +61,15 @@ function generateMarkdown(data) {
         
 ## Description
 ${data.description}
+
 ${renderLicenseBadge(data.license)}
+
 ## Table of Contents    
 * [Installation](#installation)
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [Tests](#tests)
-* [License](#license)
+${hasLicense(data.license)}
 * [Questions](#questions)
 
 ## Installation
