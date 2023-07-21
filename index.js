@@ -9,32 +9,26 @@ const readmePath = "./NEW-README.md";
 // This array contains the questions that will be asked to the user
 const questions = [
   {
-    type: "input",
     name: "title",
     message: "What is the title of your project?",
   },
   {
-    type: "input",
     name: "description",
     message: "Please provide a description of your project:",
   },
   {
-    type: "input",
     name: "installation",
     message: "Please provide installation instructions for your project:",
   },
   {
-    type: "input",
     name: "usage",
     message: "Please provide usage instructions for your project:",
   },
   {
-    type: "input",
     name: "contributing",
     message: "Please provide contributing information for your project:",
   },
   {
-    type: "input",
     name: "tests",
     message: "Please provide tests for your project:",
   },
@@ -45,20 +39,18 @@ const questions = [
     choices: ["MIT", "Apache", "GPL", "None"],
   },
   {
-    type: "input",
     name: "username",
     message: "Please provide your Git Hub username:",
   },
   {
-    type: "input",
     name: "email",
     message: "Please provide your email address:",
   },
-];
+]
 
 // This function writes the README file
 function writeReadme(path, data) {
-  fs.stat(path, (error) => {
+  fs.writeFile(path, data, (error) => {
     if (error) {
       fs.writeFile(path, data, (error) => {
         if (error) {
@@ -70,13 +62,13 @@ function writeReadme(path, data) {
         }
       });
     }
-  });
+  })
 }
 
 // This function starts the app when node index.js is run
 async function init() {
-  const answers = await inquirer.prompt(questions);
-  writeReadme(readmePath, generateMarkdown(answers));
+  const answers = await inquirer.prompt(questions)
+  writeReadme(readmePath, generateMarkdown(answers))
 }
 
 // Call to the init function to start the app

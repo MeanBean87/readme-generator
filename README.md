@@ -51,35 +51,15 @@ Snippet of the use of fs.stat, fs.writeFile, and fs.unlink.
 
 ```
 function writeReadme(path, data) {
-  fs.stat(path, (error) => {
+  fs.writeFile(path, data, (error) => {
     if (error) {
-      fs.writeFile(path, data, (error) => {
-        if (error) {
-          console.error(`Error writing README file: ${error}`);
-        } else {
-          console.log(
-            "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
-          );
-        }
-      });
+      console.error(`Error writing README file: ${error}`)
     } else {
-      fs.unlink(path, (error) => {
-        if (error) {
-          console.error(`Error deleting README file: ${error}`);
-        } else {
-          fs.writeFile(path, data, (error) => {
-            if (error) {
-              console.error(`Error writing README file: ${error}`);
-            } else {
-              console.log(
-                "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
-              );
-            }
-          });
-        }
-      });
+      console.log(
+        "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
+      );
     }
-  });
+  })
 }
 ```
 
