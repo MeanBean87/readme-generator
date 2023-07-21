@@ -1,9 +1,12 @@
+//Imports for the packages that will be used
 const inquirer = require("inquirer");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const fs = require("fs");
 
-const readmePath = "./output/README.md";
+// This is the path to the README file
+const readmePath = "./NEW-README.md";
 
+// This array contains the questions that will be asked to the user
 const questions = [
   {
     type: "input",
@@ -53,6 +56,7 @@ const questions = [
   },
 ];
 
+// This function writes the README file
 function writeReadme(path, data) {
   fs.stat(path, (error) => {
     if (error) {
@@ -65,31 +69,15 @@ function writeReadme(path, data) {
           );
         }
       });
-    } else {
-      fs.unlink(path, (error) => {
-        if (error) {
-          console.error(`Error deleting README file: ${error}`);
-        } else {
-          fs.writeFile(path, data, (error) => {
-            if (error) {
-              console.error(`Error writing README file: ${error}`);
-            } else {
-              console.log(
-                "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
-              );
-            }
-          });
-        }
-      });
     }
   });
 }
 
-// TODO: Create a function to initialize app
+// This function starts the app when node index.js is run
 async function init() {
   const answers = await inquirer.prompt(questions);
   writeReadme(readmePath, generateMarkdown(answers));
 }
 
-// Function call to initialize app
+// Call to the init function to start the app
 init();
