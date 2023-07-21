@@ -1,13 +1,13 @@
 // This function generates the badge for the README or nothing if the string is empty
 function renderLicenseBadge(license) {
   if (license === "MIT") {
-    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)`;
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)`
   } else if (license === "Apache") {
-    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)`;
+    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)`
   } else if (license === "GPL") {
-    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)`;
+    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)`
   } else if (license === "None") {
-    return ``;
+    return ``
   }
 }
 
@@ -17,26 +17,26 @@ function renderLicenseLink(license) {
     return `[MIT](LICENSE)`;
   }
   if (license === "Apache") {
-    return `[Apache](LICENSE)`;
+    return `[Apache](LICENSE)`
   }
   if (license === "GPL") {
-    return `[GPL](LICENSE)`;
+    return `[GPL](LICENSE)`
   }
   if (license === "None") {
-    return ``;
+    return ``
   }
 }
 
 // This function returns the license section of README or nothing if the string is empty
 function renderLicenseSection(license) {
   if (license === "MIT") {
-    return `## License\nThis project is licensed under the ${renderLicenseLink(license)} license`;
+    return `## License\nThis project is licensed under the ${renderLicenseLink(license)} license`
   }
   if (license === "Apache") {
-    return `## License\nThis project is licensed under the ${renderLicenseLink(license)} license.`;
+    return `## License\nThis project is licensed under the ${renderLicenseLink(license)} license.`
   }
   if (license === "GPL") {
-    return `## License\nThis project is licensed under the ${renderLicenseLink(license)} license.`;
+    return `## License\nThis project is licensed under the ${renderLicenseLink(license)} license.`
   }
   if (license === "None") {
     return ``;
@@ -46,9 +46,9 @@ function renderLicenseSection(license) {
 // This function returns generates the license section of the Table of Contents or nothing if the string is empty
 function renderLicenseToc(license) {
   if (license === "") {
-    return ``;
+    return ``
   } else {
-    return `* [License](#license)`;
+    return `* [License](#license)`
   }
 }
 
@@ -87,7 +87,7 @@ ${renderLicenseSection(data.license)}
 ## Questions
 Feel free to reach out to me with any questions!
 * ${data.username}: [Github](https://github.com/${data.username})
-* Email: ${data.email}`;
+* Email: ${data.email}`
 }
 
-module.exports = generateMarkdown;
+module.exports = generateMarkdown

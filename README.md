@@ -12,7 +12,7 @@ This application requires "Node.js" installation as well as "inquirer.js" instal
 
 Node can be installed directly from [https://nodejs.org/en]().
 
-Inquirer.js can be installed once in the root directory via NPM with the CLI command "npm i inquirer" [https://www.npmjs.com/package/inquirer]()
+Inquirer.js can be installed once in the root directory via NPM with the CLI command "npm i inquirer" [https://www.npmjs.com/package/inquirer](), 
 
 This was a project during the Full Stack Web Development Bootcamp at UC Berkeley Ext.
 
@@ -24,8 +24,8 @@ Photo of CLI Prompts:
 
 1. Clone repository from "git@github.com:MeanBean87/readme-generator.git".
 2. Navigate to the root directory of the project using CLI.
-3. Install "inquirer.js" using the command "npm i inquirer" while in the project root directory.
-4. Using the CLI type "node index.js" to start the application
+3. From the CLI type "npm install".
+4. Using the CLI type "node index.js" to start the application.
 5. Video walkthrough of installation can be found [here](https://drive.google.com/file/d/1uc42Uf1VRRS1AzRkezTrEXJmjrmckzsu/view).  or at URL: https://drive.google.com/file/d/1uc42Uf1VRRS1AzRkezTrEXJmjrmckzsu/view.
 
 ## Usage
@@ -51,35 +51,15 @@ Snippet of the use of fs.stat, fs.writeFile, and fs.unlink.
 
 ```
 function writeReadme(path, data) {
-  fs.stat(path, (error) => {
+  fs.writeFile(path, data, (error) => {
     if (error) {
-      fs.writeFile(path, data, (error) => {
-        if (error) {
-          console.error(`Error writing README file: ${error}`);
-        } else {
-          console.log(
-            "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
-          );
-        }
-      });
+      console.error(`Error writing README file: ${error}`)
     } else {
-      fs.unlink(path, (error) => {
-        if (error) {
-          console.error(`Error deleting README file: ${error}`);
-        } else {
-          fs.writeFile(path, data, (error) => {
-            if (error) {
-              console.error(`Error writing README file: ${error}`);
-            } else {
-              console.log(
-                "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
-              );
-            }
-          });
-        }
-      });
+      console.log(
+        "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
+      );
     }
-  });
+  })
 }
 ```
 
