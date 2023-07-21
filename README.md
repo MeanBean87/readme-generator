@@ -22,7 +22,7 @@ Photo of CLI Prompts:
 
 ## Installation
 
-1. Clone repository from "git@github.com:MeanBean87/readme-generator.git".
+1. Clone repository from repository.
 2. Navigate to the root directory of the project using CLI.
 3. Install node modules using "npm install"
 4. Using the CLI type "node index.js" to start the application
