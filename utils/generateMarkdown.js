@@ -57,9 +57,6 @@ function generateMarkdown(data) {
         
         * [Installation](#installation)
         * [Usage](#usage)
-        * [Credits](#credits)
-        * [Badges](#badges)
-        * [Features](#features)
         * [Contributing](#contributing)
         * [Tests](#tests)
         * [License](#license)
@@ -67,15 +64,8 @@ function generateMarkdown(data) {
         
         ## Installation
         ${data.installation}
-        
         ## Usage
-        ${data.usage}
-        ## Credits
-        ${data.credits}         
-        ## Badges
-        ${data.badges}       
-        ## Features
-        ${data.features}      
+        ${data.usage}           
         ## Contributing
         ${data.contributing}       
         ## Tests
@@ -85,8 +75,7 @@ function generateMarkdown(data) {
         ## Questions
          Feel free to reach out to me with any questions!
         * ${data.username}: [Github](https://github.com/${data.username})
-        * Email: ${data.email}
-        ---`;
+        * Email: ${data.email}`;
 }
 
 module.exports = generateMarkdown;
