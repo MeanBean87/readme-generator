@@ -1,5 +1,4 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
+// This function generates the badge for the README or nothing if the string is empty
 function renderLicenseBadge(license) {
   if (license === "MIT") {
     return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
@@ -12,8 +11,7 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
+// This function returns the license link of README or nothing if the string is empty
 function renderLicenseLink(license) {
   if (license === "MIT") {
     return `[MIT](LICENSE)`;
@@ -29,8 +27,7 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// This function returns the license section of README or nothing if the string is empty
 function renderLicenseSection(license) {
   if (license === "MIT") {
     return `## License\nThis project is licensed under the ${renderLicenseLink(license)} license`;
@@ -46,7 +43,17 @@ function renderLicenseSection(license) {
   }
 }
 
-// TODO: Create a function to generate markdown for README
+// This function returns generates the license section of the Table of Contents or nothing if the string is empty
+function renderLicenseToc(license) {
+  if (license === "") {
+    return ``;
+  } else {
+    return `* [License](#license)`;
+  }
+}
+
+
+// This function generates the markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
         
@@ -58,7 +65,7 @@ ${renderLicenseBadge(data.license)}
 * [Usage](#usage)
 * [Contributing](#contributing)
 * [Tests](#tests)
-* [License](#license)
+${renderLicenseToc(data.license)}
 * [Questions](#questions)
 
 ## Installation
