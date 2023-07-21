@@ -33,7 +33,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license === "MIT") {
-    return `This project is licensed under the ${renderLicenseLink(license)}`;
+    return `This project is licensed under the ${renderLicenseLink(license)} license`;
   }
   if (license === "Apache") {
     return `This project is licensed under the ${renderLicenseLink(license)}`;
@@ -50,32 +50,32 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   return `# ${data.title}
         
-        ## Description
-        ${data.description}
-        ${renderLicenseBadge(data.license)}
-        ## Table of Contents
+## Description
+${data.description}
+${renderLicenseBadge(data.license)}
+## Table of Contents
         
-        * [Installation](#installation)
-        * [Usage](#usage)
-        * [Contributing](#contributing)
-        * [Tests](#tests)
-        * [License](#license)
-        * [Questions](#questions)
-        
-        ## Installation
-        ${data.installation}
-        ## Usage
-        ${data.usage}           
-        ## Contributing
-        ${data.contributing}       
-        ## Tests
-        ${data.tests}
-        ## License
-        ${renderLicenseSection(data.license)}
-        ## Questions
-         Feel free to reach out to me with any questions!
-        * ${data.username}: [Github](https://github.com/${data.username})
-        * Email: ${data.email}`;
+* [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [License](#license)
+* [Questions](#questions)
+
+## Installation
+${data.installation}
+## Usage
+${data.usage}           
+## Contributing
+${data.contributing}       
+## Tests
+${data.tests}
+## License
+${renderLicenseSection(data.license)` license.`}
+## Questions
+Feel free to reach out to me with any questions!
+* ${data.username}: [Github](https://github.com/${data.username})
+* Email: ${data.email}`;
 }
 
 module.exports = generateMarkdown;

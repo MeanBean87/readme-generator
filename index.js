@@ -53,13 +53,13 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
+
 function writeReadme(path, data) {
-  fs.stat(path, (err) => {
-    if (err) {
-      fs.writeFile(path, data, (err) => {
-        if (err) {
-          console.error(`Error writing README file: ${err}`);
+  fs.stat(path, (error) => {
+    if (error) {
+      fs.writeFile(path, data, (error) => {
+        if (error) {
+          console.error(`Error writing README file: ${error}`);
         } else {
           console.log(
             "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
@@ -67,13 +67,13 @@ function writeReadme(path, data) {
         }
       });
     } else {
-      fs.unlink(path, (err) => {
-        if (err) {
-          console.error(`Error deleting README file: ${err}`);
+      fs.unlink(path, (error) => {
+        if (error) {
+          console.error(`Error deleting README file: ${error}`);
         } else {
-          fs.writeFile(path, data, (err) => {
-            if (err) {
-              console.error(`Error writing README file: ${err}`);
+          fs.writeFile(path, data, (error) => {
+            if (error) {
+              console.error(`Error writing README file: ${error}`);
             } else {
               console.log(
                 "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
