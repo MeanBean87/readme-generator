@@ -1,79 +1,108 @@
-
-# Your Project Title
+# README.md Generator
 
 ## Description
 
-Your GitHub profile is an extremely important aspect of your public identity as a developer. A well-crafted one allows you to show off your work to other developers as well as potential employers. An important component of your GitHub profile—and one that many new developers often overlook—is the README.md file.
+This application uses node.js and inquirer.js to dynamically generate formatted README.md files for use in deploying applications. This application is ran directly from CLI via "node index.js". The user will be prompted in the CLI to enter the fields data pertaining to "Title", "Description", "Installation", "Usage", "Contributing", "Tests", "License", "Github Username", and email address.
 
-The quality of a README often differentiates a good project from a bad project. A good one takes advantage of the opportunity to explain and showcase what your application does, justify the technologies used, and even talk about some of the challenges you faced and features you hope to implement in the future. A good README helps you stand out among the large crowd of developers putting their work on GitHub.
+This information will then be used to dynamically generate a README.md to be used for applications stored or deployed on Github. Note that if no license is selected there will be no display of license data on the file.  If a license is selected a badge regarding the selected license as well as a license section will be appened to the page with a link to the licensing documentation found on opensource.org or gnu.org. Currently the license information is limited to "MIT", "Apache", and "GPLv3". This can easily be extended to add more licenses.
 
-There's no one right way to structure a good README. There is one very wrong way, however, and that is to not include a README at all or to create a very anemic one. This guide outlines a few best practices. As you progress in your career, you will develop your own ideas about what makes a good README.
+The finished README will be located in the output folder found in the root directory. If the file is missing or corrupt a new file will be generated automatically. If the application is ran a second time and a good working README is present, the existing one will be overwritten. Make sure to copy the readme to the working directory before re-running the application again to prevent loss of your saved progress.
 
-At a minimum, your project README needs a title and a short description explaining the what, why, and how. What was your motivation? Why did you build this project? (Note: The answer is not "Because it was a homework assignment.") What problem does it solve? What did you learn? What makes your project stand out?
+This application requires "Node.js" installation as well as "inquirer.js" installation.
 
-Lastly, if your project is deployed, include a link to the deployed application here.
+Node can be installed directly from [https://nodejs.org/en]().
 
-If you're new to Markdown, read the GitHub guide on [Mastering Markdown](https://guides.github.com/features/mastering-markdown/).
+Inquirer.js can be installed once in the root directory via NPM with the CLI command "npm i inquirer" [https://www.npmjs.com/package/inquirer]()
 
-If you need an example of a good README, check out [the VSCode repository](https://github.com/microsoft/vscode).
+This was a project during the Full Stack Web Development Bootcamp at UC Berkeley Ext.
 
-## Table of Contents (Optional)
+Photo of CLI Prompts:
 
-If your README is very long, add a table of contents to make it easy for users to find what they need.
-
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
+![1689904247257](image/README/1689904247257.png)
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+1. Clone repository from "git@github.com:MeanBean87/readme-generator.git".
+2. Navigate to the root directory of the project using CLI.
+3. Install "inquirer.js" using the command "npm i inquirer" while in the project root directory.
+4. Using the CLI type "node index.js" to start the application
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+1. After following the installation guide, type "node index.js".
+2. Answer the prompts.
+3. Once the final prompt is answered you will get a message indicating if it was successful or not.
+4. Look in the folder "output" for the generated README.
+5. README.md is not required to be present in the output folder. If the folder is empty a new one will be created.
+6. Copy the file to your desired location.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+Photo of CLI Prompts:
 
-```md
-![alt text](assets/images/screenshot.png)
+![1689904247257](image/README/1689904247257.png)
+
+Photo of output README:
+
+![1689905060579](image/README/1689905060579.png)
+
+## Code Highlights
+
+Snippet of the use of fs.stat, fs.writeFile, and fs.unlink.
+
+```
+function writeReadme(path, data) {
+  fs.stat(path, (error) => {
+    if (error) {
+      fs.writeFile(path, data, (error) => {
+        if (error) {
+          console.error(`Error writing README file: ${error}`);
+        } else {
+          console.log(
+            "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
+          );
+        }
+      });
+    } else {
+      fs.unlink(path, (error) => {
+        if (error) {
+          console.error(`Error deleting README file: ${error}`);
+        } else {
+          fs.writeFile(path, data, (error) => {
+            if (error) {
+              console.error(`Error writing README file: ${error}`);
+            } else {
+              console.log(
+                "Success!\nYour file has been generated.\nPlease check out the README.md file in the output folder."
+              );
+            }
+          });
+        }
+      });
+    }
+  });
+}
 ```
 
-## Credits
+## Learning Points
 
-List your collaborators, if any, with links to their GitHub profiles.
-
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
-
-If you followed tutorials, include links to those here as well.
-
-## License
-
-The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/)
-
----
-
-🏆 The sections listed above are the minimum for a good README, but your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
+During the development of this project I learned how to use inquirer to generate prompts with Node. As well as the Node built in package "fs" to read and write files directly to specified directories.
 
 ## Badges
 
-![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Node.js](https://img.shields.io/badge/Node.js-v18.16.0-green)](https://nodejs.org/)
+[![Inquirer.js](https://img.shields.io/badge/Inquirer.js-v9.2.8-blue)](https://www.npmjs.com/package/inquirer)
+[![Git](https://img.shields.io/badge/Git-v2.41.0-orange)](https://git-scm.com/)
+[![GitHub](https://img.shields.io/badge/GitHub-MeanBean87-lightgrey)](https://github.com/MeanBean87)
 
-Badges aren't _necessary_, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
+## Author / Collaberators
 
-## Features
+Michael Mattingly
 
-If your project has a lot of features, consider adding a heading called "Features" and listing them there.
+* [GitHub](https://github.com/MeanBean87)
+* [LinkedIn](https://www.linkedin.com/in/michael-mattingly-5580b1280/)
 
-## Contributing
+This project was created with source code provided from UC Berkeley Extension.
 
-If you created an application or package and would like other developers to contribute it, you will want to add guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own.
+## License
 
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them.
-
----
-
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+This project is licensed under the [MIT License](./LICENSE). Please refer to the LICENSE file for more details.
