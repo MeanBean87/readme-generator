@@ -22,20 +22,18 @@ Photo of CLI Prompts:
 
 ## Installation
 
-1. Clone repository from "git@github.com:MeanBean87/readme-generator.git".
+1. Clone repository from GitHub.
 2. Navigate to the root directory of the project using CLI.
 3. Install node modules using "npm install"
-4. Using the CLI type "node index.js" to start the application
-5. Video walkthrough of installation can be found [here](https://drive.google.com/file/d/1uc42Uf1VRRS1AzRkezTrEXJmjrmckzsu/view).  or at URL: https://drive.google.com/file/d/1uc42Uf1VRRS1AzRkezTrEXJmjrmckzsu/view.
+4. Video walkthrough of installation can be found [here](https://drive.google.com/file/d/110NqHskqjoa6WaO4SMr7QOFR8tiJ-se3/view).  or at URL: [https://drive.google.com/file/d/1uc42Uf1VRRS1AzRkezTrEXJmjrmckzsu/view](https://drive.google.com/file/d/110NqHskqjoa6WaO4SMr7QOFR8tiJ-se3/view).
 
 ## Usage
 
 1. After following the installation guide, type "node index.js".
 2. Answer the prompts.
 3. Once the final prompt is answered you will get a message indicating if it was successful or not.
-4. Look in the folder "output" for the generated README.
-5. README.md is not required to be present in the output folder. If the folder is empty a new one will be created.
-6. Copy the file to your desired location.
+4. There will be a new file in the root directory name NEW-README.md
+5. Copy the file to your desired location.
 
 Photo of CLI Prompts:
 
