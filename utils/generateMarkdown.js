@@ -1,11 +1,11 @@
 // This function generates the badge for the license selected by the user
 function renderLicenseBadge(license) {
   if (license === "MIT") {
-    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)`
+    return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)`
   } else if (license === "Apache") {
-    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)`
+    return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)`
   } else if (license === "GPL") {
-    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)`
+    return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](./LICENSE)`
   } else if (license === "None") {
     return ``
   }
